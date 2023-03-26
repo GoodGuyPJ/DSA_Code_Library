@@ -88,7 +88,7 @@ int binarySearchdec(int arr[], int s, int e, int key){
 
 int main(){
     int arr[] = {-3, 9, 18, 19,20, 17, 5, 1};
-    int  key = 1;
+    int  key = -3;
 
     int size = sizeof(arr)/sizeof(int);
 
@@ -96,8 +96,8 @@ int main(){
      
     cout<<index<<endl;
     
-    cout<<"element found at index "<< binarySearch(arr, 0, index, key) <<endl;
-    cout<<"element found at index "<< binarySearchdec(arr, index+1, size-1, key)<<endl ;
+    cout<<"element found at index "<< binarySearch(arr, 0, index-1, key) <<endl;
+    cout<<"element found at index "<< binarySearchdec(arr, index, size-1, key)<<endl ;
  
     
  
