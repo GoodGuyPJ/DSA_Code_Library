@@ -1,14 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
+ //not completed
+
  
  int SearchinrowColumnwise(int arr[][4], int n, int m, int key){
-     
+     int arr[2];
     int i=0;
     int j=m-1;
     while(i>=0 && i<n && j>=0 && j<m){
         if(arr[i][j]==key){
-            // p.first=i;
-            // p.second=j;
+            a[0]=i;
+            a[1]=j;
+            
  
         }
         else if(arr[i][j]>key){
