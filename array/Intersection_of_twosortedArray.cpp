@@ -23,6 +23,7 @@ vector<int> findIntersection(vector<int> &a, vector<int> &b)
             else if (b[j] > a[i])
             {
                 break;
+                
             }
         }
     }
