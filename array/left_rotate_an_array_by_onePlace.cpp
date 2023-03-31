@@ -8,7 +8,7 @@ int main(){
 
     int n=sizeof(arr)/sizeof(int);
     int temp = arr[0];
-
+  
     for(int i=1; i<n; i++){
         arr[i-1]=arr[i];
     }
