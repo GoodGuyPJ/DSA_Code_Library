@@ -135,3 +135,152 @@ int main()
     deleteNode(4, head);
     printLL(head);
 }
+
+
+
+
+
+//singly linked list practice here
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+private:
+public:
+  int data;
+  Node *next;
+  Node(int data)
+  {
+    this->data = data;
+    this->next = NULL;
+  }
+
+  ~Node()
+  {
+    int value = this->data;
+    if (this->next != NULL)
+    {
+      delete next;
+      this->next = NULL;
+    }
+    cout<<"value "<<value<<endl;
+  }
+};
+
+void Instetathead(Node *&head, int d)
+{
+
+  Node *temp = new Node(d);
+  temp->next = head;
+  head = temp;
+}
+
+void Instetattail(Node *&tail, int d)
+{
+
+  Node *temp = new Node(d);
+  tail->next = temp;
+  tail = tail->next;
+}
+
+void InsertatMiddle(Node *&tail, Node *&head, int positon, int d)
+{
+
+  if (positon == 1)
+  {
+    Instetathead(head, d);
+    return;
+  }
+
+  Node *temp = head;
+  int cnt = 1;
+  while (cnt < positon - 1)
+  {
+    temp = temp->next;
+    cnt++;
+  }
+  if (temp->next == NULL)
+  {
+    Instetattail(tail, d);
+    return;
+  }
+  Node *nodetoinsert = new Node(d);
+
+  nodetoinsert->next = temp->next;
+  temp->next = nodetoinsert;
+}
+
+//********************** Print
+void print(Node *&head)
+{
+  Node *temp = head;
+  while (temp != NULL)
+  {
+    cout << temp->data << " ";
+    temp = temp->next;
+  }
+  cout << endl;
+}
+
+
+
+
+
+void deletion(int pos, Node* &head,Node* &tail)
+{
+  if (pos == 1)
+  {
+    Node *temp = head;
+    head = head->next;
+temp->next = NULL;
+
+    delete temp;
+  }
+
+  else
+  {
+    Node* curr = head;
+    Node* prev = NULL;
+
+    int cnt = 1;
+
+
+    while (cnt < pos)
+    {
+      prev = curr;
+      curr = curr->next;
+      cnt++;
+    }
+    if(curr->next ==NULL){
+      tail = prev;
+    }
+
+    prev->next = curr->next;
+    curr->next = NULL;
+    delete curr;
+  }
+}
+
+int main()
+{
+  Node *node1 = new Node(10);
+  Node *head = node1;
+  Node *tail = node1;
+  Instetathead(head, 9);
+
+  print(head);
+
+  Instetattail(tail, 11);
+
+  InsertatMiddle(tail, head, 2, 20);
+  print(head);
+
+  deletion(4, head,tail);
+
+  cout << "head " << head->data << endl;
+  cout << "tail " << tail->data << endl;
+  cout<< "after deletion" <<endl;
+  print(head);
+  return 0;
+}

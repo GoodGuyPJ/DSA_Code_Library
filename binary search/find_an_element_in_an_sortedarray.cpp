@@ -68,8 +68,9 @@ int main(){
      
    
       cout<<"elemnt is " <<binarySearch(arr, index, n-1, element)<<endl;
+      
     if(binarySearch(arr,0, index-1, element) || binarySearch(arr, index, n-1, element)){
-        cout<<"Present element in the array"<<endl;
+        cout<<"element is Present  in the array"<<endl;
         
     }
     else{
